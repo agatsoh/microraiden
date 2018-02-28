@@ -8,4 +8,5 @@ This are the tutorials
 
    blockchain     
    proxy-tutorial
+   raspi-tutorial
 
