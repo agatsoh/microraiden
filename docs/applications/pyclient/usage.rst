@@ -22,7 +22,7 @@ be prompted interactively.
 This client object allows interaction with the blockchain and
 offline-signing of transactions and Raiden balance proofs.
 
-An example lifecycle of a ``Client`` object could look like this:
+An example use of the library would import of the :ref:`Client Class <client-comp-overview>`:
 
 .. code:: python
 

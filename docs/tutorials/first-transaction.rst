@@ -1,3 +1,5 @@
+.. _first-transaction:
+
 Your first microtransaction
 =============================
 

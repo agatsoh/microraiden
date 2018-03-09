@@ -1,3 +1,5 @@
+.. _blockchain-setup:
+
 Blockchain setup
 =================
 

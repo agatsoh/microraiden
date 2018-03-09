@@ -1,3 +1,5 @@
+.. _client-comp-overview:
+
 Components overview
 ====================
 
