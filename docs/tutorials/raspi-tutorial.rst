@@ -21,30 +21,48 @@ Prerequisites
 
 - We highly recommend using a virtual environment with `virtualenvwrapper <https://virtualenvwrapper.readthedocs.io/en/latest/>`_
 
-``sudo pip install virtualenv virtualenvwrapper``
+.. code:: bash
 
-``export WORKON_HOME=~/Envs``
+    sudo pip install virtualenv virtualenvwrapper
 
-``mkdir -p $WORKON_HOME``
+.. code:: bash
 
-``source /usr/local/bin/virtualenvwrapper.sh``
+    export WORKON_HOME=~/Envs
 
-``mkvirtualenv -p /usr/bin/python3.5 uRaiden``
+.. code:: bash
+
+    mkdir -p $WORKON_HOME
+
+.. code:: bash
+
+    source /usr/local/bin/virtualenvwrapper.sh
+
+.. code:: bash
+
+    mkvirtualenv -p /usr/bin/python3.5 uRaiden
 
 - Clone and setup microraiden
 
-``git clone https://github.com/raiden-network/microraiden.git``
+.. code:: bash
 
-``cd microraiden/``
+    git clone https://github.com/raiden-network/microraiden.git
+
+.. code:: bash
+
+    cd microraiden/
 
 .. code ::
 
   sudo apt-get install libffi-dev libtool python-dev libssl-dev python-setuptools build-essential automake pkg-config libgmp-dev
 
 
-``pip install -r requirements.txt``
+.. code:: bash
 
-``python setup.py develop``
+    pip install -r requirements.txt
+
+.. code:: bash
+
+    python setup.py develop
 
 
 Running µRaiden Client and Server
@@ -83,7 +101,9 @@ Running the µRaiden Proxy Server
 
 In the ``~/microraiden/microraiden/examples`` folder go to the ``echo_server.py`` and go to the part where we start the server.(These set of actions are performed on **your PC**)
 
-``cd ~/microraiden/microraiden/examples``
+.. code:: bash
+
+    cd ~/microraiden/microraiden/examples
 
 .. code :: python
 
@@ -95,7 +115,7 @@ Change the `app.run` to include arguments for the `host` and `port`
 
 ``app.run(host="192.168.1.104", port=5000, debug=True)``
 
-``192.168.1.104`` This IP could be different your set-up. Include the IP address of the interface on your PC that is connected to the raspberry pi.
+``192.168.1.104`` This IP could be different for your set-up. Include the IP address of the interface on your PC that is connected to the raspberry pi.
 
 
 .. code ::
@@ -111,11 +131,15 @@ Running the µRaiden client on the raspberry pi
 
 Navigate to the cloned microraiden repository and modify the following files on the **raspberry pi**.
 
-``cd ~/microraiden/microraiden``
+.. code:: bash
+
+cd ~/microraiden/microraiden
 
 1. In the ``microraiden/constants.py`` file change the  **WEB3_PROVIDER_DEFAULT** value to ``"http://192.168.1.104:8545"``  where  ``192.168.1.104``  is the IP address of the PC where we started the geth node and the µRaiden ``echo_server``.
 
-``sudo nano microraiden/constants.py``
+.. code:: bash
+
+sudo nano microraiden/constants.py
 
 2. In the ``microraiden/examples/echo_client.py``  change ``endpoint_url`` parameter of the `run` function
    definition which looks like this
@@ -134,7 +158,9 @@ Navigate to the cloned microraiden repository and modify the following files on 
 
 to the interface of the PC like this ``endpoint_url: str = 'http://192.168.1.104:5000'``. This enables the raspberry to make a request to the server.
 
-``sudo nano microraiden/examples/echo_client.py``
+.. code:: bash
+
+    sudo nano microraiden/examples/echo_client.py
 
 Now we run the `echo_client.py` like this
 
@@ -183,20 +209,28 @@ To check whether libsecp256k1 is installed do the following:
 
 The ``installed`` option tells us whether the package is installed. Since we have none it does not print anything. Later we list the packages which exists in raspbian repository of packages. We install both the packages.
 
-``sudo apt-get install libsecp256k1-0 libsecp256k1-dev``
+.. code:: bash
+
+    sudo apt-get install libsecp256k1-0 libsecp256k1-dev
 
 After this we go to the releases page of
 `secp256k1 <https://github.com/ludbb/secp256k1-py/releases>`_ and download the tar.gz of `0.13.2.4` (version as of writing of this tutorial) like this.
 
-``wget https://github.com/ludbb/secp256k1-py/archive/0.13.2.4.tar.gz``
+.. code:: bash
+
+    wget https://github.com/ludbb/secp256k1-py/archive/0.13.2.4.tar.gz
 
 From the current folder we install tar.gz package of *secp256k1* like this.
 
-``pip install 0.13.2.4.tar.gz``
+.. code:: bash
+
+    pip install 0.13.2.4.tar.gz
 
 After this again install **requirements.txt**
 
-``pip install -r requirements.txt``
+.. code:: bash
+
+    pip install -r requirements.txt
 
 For Transferring file from your machine to the Raspberry pi refer to this documentation
 
